@@ -213,6 +213,28 @@ let msg =
 "Pagamento: Pix\n\n" +
 
 "Obrigado por escolher a PECAI";
+fetch("https://script.google.com/macros/s/AKf.../exec", {
+method: "POST",
+mode: "no-cors",
+headers: {
+"Content-Type": "application/json"
+},
+body: JSON.stringify({
+pedido: Date.now(),
+data: new Date().toLocaleString(),
+loja: "Macaparana",
+cliente: cliente.nome,
+telefone: cliente.fone,
+endereco: cliente.endereco,
+referencia: cliente.referencia,
+pedidoTexto: msg,
+subtotal: total,
+taxa: taxaEntrega,
+total: total + taxaEntrega,
+pagamento: "Pix",
+status: "NOVO"
+})
+});
 
 window.open(
 "https://wa.me/5581995693080?text=" +
