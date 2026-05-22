@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>Cardápio Peçaí</title>
+
+<style>
+
+body{
+margin:0;
+background:#4d0080;
+font-family:Arial;
+color:white;
+}
+
+.container{
+max-width:500px;
+margin:auto;
+padding:20px;
+}
+
+.logo{
+text-align:center;
+font-size:34px;
+font-weight:bold;
+margin-bottom:30px;
+}
+
+.card{
+
+background:white;
+color:#333;
+
+padding:18px;
+
+margin-bottom:20px;
+
+border-radius:18px;
+}
+
+.item{
+display:flex;
+
+justify-content:space-between;
+
+padding:14px;
+
+border-bottom:1px solid #ddd;
+}
+
+button{
+
+width:100%;
+
+background:#FFD500;
+
+border:none;
+
+padding:16px;
+
+font-size:18px;
+
+font-weight:bold;
+
+border-radius:12px;
+
+cursor:pointer;
+
+}
+
+.total{
+
+font-size:24px;
+
+text-align:center;
+
+margin:25px;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="logo">
+🍧 Peçaí
+</div>
+
+<div class="card">
+
+<h2>AÇAÍ</h2>
+
+<div class="item">
+300ml
+<button onclick="add(14)">
+R$14
+</button>
+</div>
+
+<div class="item">
+500ml
+<button onclick="add(18)">
+R$18
+</button>
+</div>
+
+<div class="item">
+700ml
+<button onclick="add(24)">
+R$24
+</button>
+</div>
+
+</div>
+
+<div class="card">
+
+<h2>Complementos</h2>
+
+<label>
+<input type="checkbox">
+Leite condensado
+</label>
+
+<br><br>
+
+<label>
+<input type="checkbox">
+Paçoca
+</label>
+
+<br><br>
+
+<label>
+<input type="checkbox">
+Granola
+</label>
+
+</div>
+
+<div class="total">
+
+Total:
+R$ <span id="total">0</span>
+
+</div>
+
+<button onclick="finalizar()">
+FINALIZAR PEDIDO
+</button>
+
+</div>
+
+<script>
+
+let total=0;
+
+function add(v){
+
+total+=v;
+
+document.getElementById(
+"total"
+).innerHTML=total;
+
+}
+
+function finalizar(){
+
+window.open(
+
+"https://wa.me/5581995693080?text=Olá%20quero%20fazer%20um%20pedido"
+
+);
+
+}
+
+</script>
+
+</body>
+
+</html>
