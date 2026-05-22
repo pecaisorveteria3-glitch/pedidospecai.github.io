@@ -179,6 +179,9 @@ function finalizar() {
 const cliente =
 JSON.parse(localStorage.getItem("cliente"));
 
+cliente.referencia =
+cliente.referencia || "";
+
 let taxaEntrega = 3; // altere aqui
 
 let msg =
