@@ -166,9 +166,19 @@ total+=v;
 
 document.getElementById(
 "total"
-).innerHTML=total;
+).innerHTML=
+total.toFixed(2);
 
 }
+
+function extra(v){
+
+total += v;
+
+document.getElementById("total").innerHTML =
+total.toFixed(2);
+
+} 
 
 function finalizar() {
 
