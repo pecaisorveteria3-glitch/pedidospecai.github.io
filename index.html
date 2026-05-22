@@ -1,65 +1,57 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+
 <title>Pedidos Peçaí Sorveterias</title>
 
 <style>
 
 body{
 margin:0;
+background:#4b0082;
 font-family:Arial;
-background:#4d007d;
 color:white;
-text-align:center;
 }
 
-.logo{
-width:140px;
-margin-top:40px;
-border-radius:20px;
-}
-
-.container{
+.box{
+max-width:700px;
+margin:auto;
 padding:30px;
-}
-
-h1{
-font-size:34px;
-margin-bottom:10px;
-}
-
-.sub{
-color:#ffd500;
 }
 
 .card{
 background:white;
-color:#4d007d;
+color:#4b0082;
 padding:18px;
-margin:18px auto;
-max-width:350px;
 border-radius:18px;
-cursor:pointer;
-font-size:22px;
+margin:12px 0;
+}
+
+input,select{
+width:100%;
+padding:14px;
+margin-top:8px;
+margin-bottom:15px;
+border-radius:10px;
+border:none;
+}
+
+button{
+width:100%;
+padding:18px;
+border:none;
+border-radius:14px;
+background:#ffd500;
+color:#4b0082;
+font-size:18px;
 font-weight:bold;
 }
 
-.botao{
-background:#ffd500;
-color:#4d007d;
-border:none;
-padding:18px;
-width:320px;
-font-size:22px;
-border-radius:18px;
-margin-top:25px;
-}
-
-.footer{
-margin-top:50px;
-opacity:.8;
+.hidden{
+display:none;
 }
 
 </style>
@@ -68,41 +60,170 @@ opacity:.8;
 
 <body>
 
-<div class="container">
+<div class="box">
 
 <h1>🍨 Pedidos Peçaí</h1>
 
-<div class="sub">
-Escolha sua loja
+<div class="card">
+
+Loja
+
+<select id="loja">
+
+<option>Macaparana</option>
+<option>Condado</option>
+<option>Aliança</option>
+
+</select>
+
 </div>
 
 <div class="card">
-📍 Loja 1 — Condado
+
+Nome completo
+<input id="nome">
+
+Telefone
+<input id="fone">
+
+Endereço
+<input id="end">
+
+Ponto referência
+<input id="ref">
+
 </div>
 
 <div class="card">
-📍 Loja 2 — Aliança
+
+Entrega
+
+<select id="tipo">
+
+<option>Entrega</option>
+<option>Retirada</option>
+
+</select>
+
+Cidade
+
+<select id="cidade">
+
+<option>Macaparana</option>
+<option>São Vicente Ferrer</option>
+
+</select>
+
 </div>
 
 <div class="card">
-📍 Loja 3 — Macaparana
+
+Pagamento
+
+<select id="pag">
+
+<option>Pix</option>
+<option>Dinheiro</option>
+<option>Cartão Crédito</option>
+<option>Cartão Débito</option>
+
+</select>
+
+Troco para:
+<input id="troco">
+
 </div>
 
-<button class="botao">
-PEDIR AGORA
+<button onclick="enviar()">
+
+CONTINUAR
+
 </button>
 
-<div class="footer">
-
-Delivery<br>
-
-Terça a Domingo<br>
-
-14:00 às 21:50
-
 </div>
 
-</div>
+<script>
+
+function enviar(){
+
+localStorage.setItem(
+"cliente",
+JSON.stringify({
+
+nome:nome.value,
+fone:fone.value,
+end:end.value,
+ref:ref.value
+
+})
+)
+
+let taxa=
+tipo.value==="Retirada"
+?0
+:cidade.value==="Macaparana"
+?3
+:10
+
+let msg=
+
+`🍨 PEDIDO PEÇAÍ
+
+Loja:
+${loja.value}
+
+Cliente:
+${nome.value}
+
+Telefone:
+${fone.value}
+
+Endereço:
+${end.value}
+
+Referência:
+${ref.value}
+
+Tipo:
+${tipo.value}
+
+Cidade:
+${cidade.value}
+
+Taxa:
+R$ ${taxa}
+
+Pagamento:
+${pag.value}
+
+Troco:
+${troco.value}`
+
+window.open(
+https://wa.me/5581995693080?text=${encodeURIComponent(msg)}
+)
+
+}
+
+window.onload=()=>{
+
+let c=
+JSON.parse(
+localStorage.getItem("cliente")
+)
+
+if(c){
+
+nome.value=c.nome
+fone.value=c.fone
+end.value=c.end
+ref.value=c.ref
+
+}
+
+}
+
+</script>
 
 </body>
 </html>
