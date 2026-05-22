@@ -174,10 +174,22 @@ document.getElementById(
 
 function finalizar(){
 
+const cliente =
+JSON.parse(localStorage.getItem("cliente"));
+
+let msg =
+"🍧 NOVO PEDIDO - PEÇAÍ\n\n" +
+
+"👤 Nome: " + cliente.nome + "\n" +
+"📞 Telefone: " + cliente.fone + "\n" +
+"📍 Endereço: " + cliente.endereco + "\n\n" +
+
+"💰 Total: R$ " + total;
+
 window.open(
-
-"https://wa.me/5581995693080?text=Olá%20quero%20fazer%20um%20pedido"
-
+"https://wa.me/5581995693080?text=" +
+encodeURIComponent(msg),
+"_blank"
 );
 
 }
