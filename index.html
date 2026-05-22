@@ -94,8 +94,7 @@ CONTINUAR
 
 function continuar(){
 
-const nome=
-document.getElementById("nome").value;
+const nome = document.getElementById("nome").value;
 
 if(!nome){
 alert("Informe seu nome");
@@ -105,19 +104,16 @@ return;
 localStorage.setItem(
 "cliente",
 JSON.stringify({
-nome,
-fone:
-document.getElementById("fone").value,
-endereco:
-document.getElementById("endereco").value
+nome: nome,
+fone: document.getElementById("fone").value,
+endereco: document.getElementById("endereco").value
 })
 );
 
-window.location.href="cardapio.html";
+window.location.href = "cardapio.html";
 
 }
 
 </script>
-
 </body>
 </html>
