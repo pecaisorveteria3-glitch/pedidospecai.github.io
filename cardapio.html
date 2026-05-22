@@ -177,32 +177,36 @@ function finalizar() {
 const cliente =
 JSON.parse(localStorage.getItem("cliente"));
 
+let taxaEntrega = 3; // altere aqui
+
 let msg =
-"🧾 PECAI MACAPARANA\n" +
+"PECAI MACAPARANA\n" +
 "━━━━━━━━━━━━━━\n\n" +
 
-"👤 Cliente: " + cliente.nome + "\n" +
-"📞 Telefone: " + cliente.fone + "\n" +
-"📍 Endereco: " + cliente.endereco + "\n\n" +
+"CLIENTE\n" +
+"Nome: " + cliente.nome + "\n" +
+"Telefone: " + cliente.fone + "\n" +
+"Endereco: " + cliente.endereco + "\n\n" +
 
-"🍧 PEDIDO\n" +
-"• Acai Gourmet\n\n" +
+"PEDIDO\n" +
+"1x Acai Gourmet\n\n" +
 
-"📦 TAMANHO\n" +
-"• 330ML\n\n" +
+"TAMANHO\n" +
+"1x 330ML\n\n" +
 
-"🍫 ACOMPANHAMENTOS\n" +
-"• Leite condensado\n" +
-"• Granola\n\n" +
+"ACOMPANHAMENTOS\n" +
+"- Leite condensado\n" +
+"- Granola\n\n" +
 
 "━━━━━━━━━━━━━━\n" +
-"💰 Subtotal: R$ " + total + "\n" +
-"🚚 Taxa entrega: R$ 0\n" +
-"🔥 TOTAL: R$ " + total + "\n\n" +
 
-"💳 Pagamento: Pix\n\n" +
+"Subtotal: R$ " + total + "\n" +
+"Taxa entrega: R$ " + taxaEntrega + "\n" +
+"TOTAL: R$ " + (total + taxaEntrega) + "\n\n" +
 
-"Obrigado por escolher a PECAI ❤️";
+"Pagamento: Pix\n\n" +
+
+"Obrigado por escolher a PECAI";
 
 window.open(
 "https://wa.me/5581995693080?text=" +
