@@ -178,13 +178,15 @@ const cliente =
 JSON.parse(localStorage.getItem("cliente"));
 
 let msg =
-"🍧 NOVO PEDIDO - PEÇAÍ\n\n" +
+"NOVO PEDIDO - PEÇAÍ\n\n" +
 
-"👤 Nome: " + cliente.nome + "\n" +
-"📞 Telefone: " + cliente.fone + "\n" +
-"📍 Endereço: " + cliente.endereco + "\n\n" +
+"Nome: " + cliente.nome + "\n" +
+"Telefone: " + cliente.fone + "\n" +
+"Endereço: " + cliente.endereco + "\n\n" +
 
-"💰 Total: R$ " + total;
+"Pedido: Açaí\n\n" +
+
+"Total: R$ " + total;
 
 window.open(
 "https://wa.me/5581995693080?text=" +
