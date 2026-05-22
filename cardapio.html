@@ -178,15 +178,28 @@ const cliente =
 JSON.parse(localStorage.getItem("cliente"));
 
 let msg =
-"NOVO PEDIDO - PEÇAÍ\n\n" +
+"PECAI MACAPARANA\n" +
+"----------------------\n\n" +
 
-"Nome: " + cliente.nome + "\n" +
+"Cliente: " + cliente.nome + "\n" +
 "Telefone: " + cliente.fone + "\n" +
-"Endereço: " + cliente.endereco + "\n\n" +
+"Endereco: " + cliente.endereco + "\n\n" +
 
-"Pedido: Açaí\n\n" +
+"PEDIDO\n" +
+"1x Acai Gourmet\n\n" +
 
-"Total: R$ " + total;
+"TAMANHO\n" +
+"1x 330ML\n\n" +
+
+"ACOMPANHAMENTOS\n" +
+"- Leite condensado\n" +
+"- Granola\n\n" +
+
+"Subtotal: R$ " + total + "\n" +
+"Taxa entrega: R$ 0\n" +
+"TOTAL: R$ " + total + "\n\n" +
+
+"Pagamento: Pix";
 
 window.open(
 "https://wa.me/5581995693080?text=" +
