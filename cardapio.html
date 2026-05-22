@@ -160,14 +160,23 @@ let total=0;
 
 localStorage.removeItem("pedido");
 
+function atualizarTotal(){
+
+document.getElementById("total").innerHTML =
+total.toFixed(2);
+
+document.querySelector(
+"button[onclick='finalizar()']"
+).innerHTML =
+"ADICIONAR R$ " + total.toFixed(2);
+
+}
+
 function add(v){
 
-total+=v;
+total += v;
 
-document.getElementById(
-"total"
-).innerHTML=
-total.toFixed(2);
+atualizarTotal();
 
 }
 
@@ -175,10 +184,9 @@ function extra(v){
 
 total += v;
 
-document.getElementById("total").innerHTML =
-total.toFixed(2);
+atualizarTotal();
 
-} 
+}
 
 function finalizar() {
 
