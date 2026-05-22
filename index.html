@@ -1,106 +1,125 @@
-<!DOCTYPE html>  
-<html lang="pt-BR">  
-<head>  
-<meta charset="UTF-8">  
-<meta name="viewport" content="width=device-width,initial-scale=1">  
-<title>Pedidos Peçaí Sorveterias</title>  
-<style>  
-  
-body{  
-margin:0;  
-font-family:Arial;  
-background:#4d0b88;  
-color:white;  
-display:flex;  
-justify-content:center;  
-padding:30px;  
-}  
-  
-.card{  
-width:420px;  
-background:#ffffff10;  
-padding:25px;  
-border-radius:20px;  
-}  
-  
-h1{  
-text-align:center;  
-}  
-  
-input,select,button{  
-width:100%;  
-padding:14px;  
-margin-top:12px;  
-border-radius:12px;  
-border:none;  
-box-sizing:border-box;  
-}  
-  
-button{  
-background:#ffd400;  
-font-weight:bold;  
-cursor:pointer;  
-}  
-  
-button:hover{  
-opacity:.95;  
-}  
-  
-</head>  
-<body>  
-<div class="card">  
-<h1>🍨 Pedidos Peçaí</h1>  
-<select id="loja">  
-<option>Macaparana</option>  
-<option>Condado</option>  
-<option>Aliança</option>  
-</select>  
-<input id="nome" placeholder="Nome completo">  
-<input id="fone" placeholder="Telefone">  
-<input id="endereco" placeholder="Endereço">  
-<input id="referencia" placeholder="Ponto de referência">  
-<select id="tipo">  
-<option>Entrega</option>  
-<option>Retirada</option>  
-</select>  
-<select id="pagamento">  
-<option>Pix</option>  
-<option>Dinheiro</option>  
-<option>Cartão</option>  
-</select>  
-<input id="troco" placeholder="Troco para">  
-<button onclick="continuar()">  
-CONTINUAR  
-</button>  
-</div>  
-<script>  
-  
-function continuar(){  
-  
-const nome=  
-document.getElementById("nome").value;  
-  
-if(!nome){  
-alert("Informe seu nome");  
-return;  
-}  
-  
-localStorage.setItem(  
-"cliente",  
-JSON.stringify({  
-nome,  
-fone:  
-document.getElementById("fone").value,  
-endereco:  
-document.getElementById("endereco").value  
-})  
-);  
-  
-alert(  
-"Cadastro salvo! Próxima etapa: cardápio"  
-);  
-  
-}  
-  
-</body>  
-</html>  
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>Pedidos Peçaí Sorveterias</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Arial;
+background:#4d0b88;
+color:white;
+display:flex;
+justify-content:center;
+padding:30px;
+}
+
+.card{
+width:420px;
+background:#ffffff10;
+padding:25px;
+border-radius:20px;
+}
+
+h1{
+text-align:center;
+}
+
+input,select,button{
+width:100%;
+padding:14px;
+margin-top:12px;
+border-radius:12px;
+border:none;
+box-sizing:border-box;
+}
+
+button{
+background:#ffd400;
+font-weight:bold;
+cursor:pointer;
+}
+
+button:hover{
+opacity:.95;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+<h1>🍨 Pedidos Peçaí</h1>
+
+<select id="loja">
+<option>Macaparana</option>
+<option>Condado</option>
+<option>Aliança</option>
+</select>
+
+<input id="nome" placeholder="Nome completo">
+
+<input id="fone" placeholder="Telefone">
+
+<input id="endereco" placeholder="Endereço">
+
+<input id="referencia" placeholder="Ponto de referência">
+
+<select id="tipo">
+<option>Entrega</option>
+<option>Retirada</option>
+</select>
+
+<select id="pagamento">
+<option>Pix</option>
+<option>Dinheiro</option>
+<option>Cartão</option>
+</select>
+
+<input id="troco" placeholder="Troco para">
+
+<button onclick="continuar()">
+CONTINUAR
+</button>
+
+</div>
+
+<script>
+
+function continuar(){
+
+const nome=
+document.getElementById("nome").value;
+
+if(!nome){
+alert("Informe seu nome");
+return;
+}
+
+localStorage.setItem(
+"cliente",
+JSON.stringify({
+nome,
+fone:
+document.getElementById("fone").value,
+endereco:
+document.getElementById("endereco").value
+})
+);
+
+alert(
+"Cadastro salvo! Próxima etapa: cardápio"
+);
+
+}
+
+</script>
+
+</body>
+</html>
