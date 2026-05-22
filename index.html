@@ -1,5 +1,5 @@
 <!DOCTYPE html>  
-<html lang="pt-br">  
+<html lang="pt-BR">  
 <head>  
 <meta charset="UTF-8">  
 <meta name="viewport" content="width=device-width,initial-scale=1">  
@@ -8,176 +8,97 @@
   
 body{  
 margin:0;  
-background:#4b0082;  
 font-family:Arial;  
+background:#4d0b88;  
 color:white;  
-}  
-  
-.box{  
-max-width:700px;  
-margin:auto;  
+display:flex;  
+justify-content:center;  
 padding:30px;  
 }  
   
 .card{  
-background:white;  
-color:#4b0082;  
-padding:18px;  
-border-radius:18px;  
-margin:12px 0;  
+width:420px;  
+background:#ffffff10;  
+padding:25px;  
+border-radius:20px;  
 }  
   
-input,select{  
+h1{  
+text-align:center;  
+}  
+  
+input,select,button{  
 width:100%;  
 padding:14px;  
-margin-top:8px;  
-margin-bottom:15px;  
-border-radius:10px;  
+margin-top:12px;  
+border-radius:12px;  
 border:none;  
+box-sizing:border-box;  
 }  
   
 button{  
-width:100%;  
-padding:18px;  
-border:none;  
-border-radius:14px;  
-background:#ffd500;  
-color:#4b0082;  
-font-size:18px;  
+background:#ffd400;  
 font-weight:bold;  
+cursor:pointer;  
 }  
   
-.hidden{  
-display:none;  
+button:hover{  
+opacity:.95;  
 }  
   
 </head>  
 <body>  
-<div class="box">  
-<h1>🍨 Pedidos Peçaí</h1>  
 <div class="card">  
-Loja
+<h1>🍨 Pedidos Peçaí</h1>  
 <select id="loja">  
 <option>Macaparana</option>  
 <option>Condado</option>  
 <option>Aliança</option>  
 </select>  
-</div>  
-<div class="card">  
-Nome completo  
-<input id="nome">
-Telefone  
-<input id="fone">
-Endereço  
-<input id="end">
-Ponto referência  
-<input id="ref">
-</div>  
-<div class="card">  
-Entrega
+<input id="nome" placeholder="Nome completo">  
+<input id="fone" placeholder="Telefone">  
+<input id="endereco" placeholder="Endereço">  
+<input id="referencia" placeholder="Ponto de referência">  
 <select id="tipo">  
 <option>Entrega</option>  
 <option>Retirada</option>  
 </select>  
-Cidade
-<select id="cidade">  
-<option>Macaparana</option>  
-<option>São Vicente Ferrer</option>  
-</select>  
-</div>  
-<div class="card">  
-Pagamento
-<select id="pag">  
+<select id="pagamento">  
 <option>Pix</option>  
 <option>Dinheiro</option>  
-<option>Cartão Crédito</option>  
-<option>Cartão Débito</option>  
+<option>Cartão</option>  
 </select>  
-Troco para:  
-<input id="troco">
-</div>  
-<button onclick="enviar()">  
-CONTINUAR
+<input id="troco" placeholder="Troco para">  
+<button onclick="continuar()">  
+CONTINUAR  
 </button>  
 </div>  
 <script>  
   
-function enviar(){  
+function continuar(){  
+  
+const nome=  
+document.getElementById("nome").value;  
+  
+if(!nome){  
+alert("Informe seu nome");  
+return;  
+}  
   
 localStorage.setItem(  
 "cliente",  
 JSON.stringify({  
-  
-nome:nome.value,  
-fone:fone.value,  
-end:end.value,  
-ref:ref.value  
-  
+nome,  
+fone:  
+document.getElementById("fone").value,  
+endereco:  
+document.getElementById("endereco").value  
 })  
-)  
+);  
   
-let taxa=  
-tipo.value==="Retirada"  
-?0  
-:cidade.value==="Macaparana"  
-?3  
-:10  
-  
-let msg=  
-  
-`🍨 PEDIDO PEÇAÍ  
-  
-Loja:  
-${loja.value}  
-  
-Cliente:  
-${nome.value}  
-  
-Telefone:  
-${fone.value}  
-  
-Endereço:  
-${end.value}  
-  
-Referência:  
-${ref.value}  
-  
-Tipo:  
-${tipo.value}  
-  
-Cidade:  
-${cidade.value}  
-  
-Taxa:  
-R$ ${taxa}  
-  
-Pagamento:  
-${pag.value}  
-  
-Troco:  
-${troco.value}`  
-  
-window.open(  
-`https://wa.me/5581995693080?text=${encodeURIComponent(msg)}`  
-)  
-  
-}  
-  
-window.onload=()=>{  
-  
-let c=  
-JSON.parse(  
-localStorage.getItem("cliente")  
-)  
-  
-if(c){  
-  
-nome.value=c.nome  
-fone.value=c.fone  
-end.value=c.end  
-ref.value=c.ref  
-  
-}  
+alert(  
+"Cadastro salvo! Próxima etapa: cardápio"  
+);  
   
 }  
   
